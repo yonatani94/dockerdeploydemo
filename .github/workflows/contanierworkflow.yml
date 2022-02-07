@@ -37,8 +37,8 @@ jobs:
           
       environment: PROD
 
-      env:
-        NAMESPACE: johny
+      #env:
+       # NAMESPACE: johny
       
       steps:
       
@@ -52,8 +52,8 @@ jobs:
           resource-group: ${{ secrets.AKS_RESOURCE_GROUP }}
     
       # Create namespace if doesn't exist
-      - run: |
-          kubectl create namespace ${{ env.NAMESPACE }} --dry-run -o json | kubectl apply -f -
+      #- run: |
+       #   kubectl create namespace ${{ env.NAMESPACE }} --dry-run -o json | kubectl apply -f -
     
       # Create image pull secret for ACR
       - uses: azure/k8s-create-secret@v1
@@ -62,7 +62,7 @@ jobs:
           container-registry-username: ${{ secrets.SERVICE_PRINCIPAL_ID }}
           container-registry-password: ${{ secrets.SERVICE_PRINCIPAL_PASSWORD }}
           secret-name: ${{ secrets.AKS_SECRET }}
-          namespace: ${{ env.NAMESPACE }}
+         # namespace: ${{ env.NAMESPACE }}
     
       # Deploy app to AKS
       - uses: azure/k8s-deploy@v1
@@ -74,4 +74,4 @@ jobs:
             ${{ env.IMAGE_NAME }}
           imagepullsecrets: |
             ${{ secrets.AKS_SECRET }}
-          namespace: ${{ env.NAMESPACE }}
+         # namespace: ${{ env.NAMESPACE }}
