@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    runs-on: [self-hosted, azure, linux]
+    runs-on: [self-hosted, azure, docker]
 
     steps:
     - name: "Login and list resource groups in subscription"
