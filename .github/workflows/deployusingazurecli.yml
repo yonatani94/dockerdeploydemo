@@ -13,7 +13,7 @@ jobs:
       BUILD_CONFIG: Release
       DOT_NET_VERSION: 5.0.x
       
-    runs-on: [self-hosted, linux,docker]
+    runs-on: [self-hosted, azure,docker]
 
     steps:
     - uses: actions/checkout@v2
