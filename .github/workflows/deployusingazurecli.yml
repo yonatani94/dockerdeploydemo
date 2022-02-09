@@ -46,4 +46,4 @@ jobs:
         azcliversion: 2.24.2
         inlineScript: |
           az login --identity
-          az webapp deploy --resource-group githubrunnerubuntu_group --name ${{ env.AZURE_WEBAPP_NAME }} --type zip --src-path ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/deployfile.zip
+          az webapp deploy --resource-group GITHUBRUNNERUBUNTU_GROUP --name ${{ env.AZURE_WEBAPP_NAME }} --type zip --src-path ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/deployfile.zip
